@@ -1,3 +1,9 @@
+//This is an example Package.json file that is created on running: npm init
+
+//Here you can see the Twit dependancy at the end. This was added automatically by running: npm install twit --save
+
+//Again this is just an example. Your own Package.json file will be automatically created when you initialise npm.
+
 {
   "name": "twitter_bot",
   "version": "1.0.0",
