@@ -7,6 +7,8 @@ Twit is an API Client for Node.js which supports both REST and Streaming API.
 
 ## Install:
 
+Install Node.js (https://nodejs.org/en/) and then run the following:
+
 	nmp init 
 
 This will setup a Package.json file (It will ask you for name, version, description, main, etc.)
