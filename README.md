@@ -1,11 +1,11 @@
-#Twitter Apologiser Bot:
+# Twitter Apologiser Bot:
 
 Apologiser Bot and other various Twitter Bots created with Node.js package: Twit by ttezel (https://github.com/ttezel/twit)
 
 Twit is an API Client for Node.js which supports both REST and Streaming API.
 
 
-#Install:
+## Install:
 
 	nmp init 
 
@@ -15,7 +15,7 @@ This will setup a Package.json file (It will ask you for name, version, descript
 
 This will install twit and add the twit dependancy to the Package.json file
 
-#Setup Config File:
+## Setup Config File:
 
 Rename file to config.js and fill out follwing info with your own API Keys/tokens
 
@@ -26,7 +26,7 @@ Rename file to config.js and fill out follwing info with your own API Keys/token
 		access_token_secret:  '...',
 		}
 
-#Usage:
+## Usage:
 
 Use the Twitter_API_Search.js file to find an account's UserID. Edit it to include their "screen_name" where it says "INSERT_SCREEN_NAME"
 
