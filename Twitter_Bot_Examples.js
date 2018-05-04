@@ -10,8 +10,6 @@ var config = require('./config')
 var T = new Twit(config)
 
 
-
-
 // To post repeatedly after a number of miliseconds/ seconds/minutes:
 
 setInterval(SendTweet, 1000*60*60)
@@ -37,8 +35,6 @@ function SendTweet() {
 }
 
 
-
-
 // // To search twitter for all tweets containing the word 'crab' since July 11, 2011:
 
 var params = {
@@ -53,11 +49,54 @@ function GotData(err, data, response) {
 }
 
 
-
-
 // To get the list of user id's that follow @Example_user:
 
 T.get('followers/ids', { screen_name: 'Example_User' },  function (err, data, response) {
 	console.log(data)
 }
 
+        
+//The following can be used to pull data about specific user's tweets:
+
+var userId = 'INSERT_USERID';
+//Get "userID" of twitter user from running hello.js with "screen_name"
+var stream = T.stream('statuses/filter', { follow: userId });
+stream.on('tweet', GotTweet);
+
+function GotTweet(tweet) {
+	console.log(tweet);
+}
+
+
+//The following can be used to automate reply's to mentions (Spam)
+
+var stream = T.stream('statuses/filter', { track: ['@myTwitterHandle'] });
+stream.on('tweet', tweetEvent);
+
+function tweetEvent(tweet) {
+
+// Who sent the tweet?
+    var name = tweet.user.screen_name;
+    // What is the text?
+    var txt = tweet.text;
+    // the status update or tweet ID in which we will reply
+    var nameID  = tweet.id_str;
+
+// Get rid of the @ mention
+      var txt = txt.replace(/@myTwitterHandle/g, "");
+
+     // Start a reply back to the sender
+     var reply = "You mentioned me! @" + name + ' ' + 'You are super cool!';
+     var params             = {
+                               status: reply,
+                               in_reply_to_status_id: nameID
+                              };
+
+     T.post('statuses/update', params, function(err, data, response) {
+       if (err !== undefined) {
+         console.log(err);
+       } else {
+         console.log('Tweeted: ' + params.status);
+       }
+     })
+ };
