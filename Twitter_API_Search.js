@@ -2,6 +2,9 @@
 
 //Again this file requires the config.js file ot be completed with your Twitter API keys/tokens
 
+//This will also return Twitter's User ID for any user if their screen name is searched with this script. 
+//This User ID is needed for the other twitter bots in this repo.
+
 //Other than the config.js, you only need to change the "params" variable below:
 
 console.log("Searching Twitter...");
