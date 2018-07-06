@@ -16,8 +16,6 @@ setInterval(SendTweet, 1000*60*60)
 This will tweet every; 
 1000 miliseconds * 60 milliseconds (= 1 minute) * 60 miliseconds (= 1 hour)
 
-To tweet 'hello world from node.js'
-
 SendTweet();
 
 function SendTweet() {
@@ -51,7 +49,7 @@ function GotData(err, data, response) {
 
 // To get the list of user id's that follow @Example_user:
 
-T.get('followers/ids', { screen_name: 'Example_User' },  function (err, data, response) {
+T.get('followers/ids', { screen_name: 'EXAMPLE_USER' },  function (err, data, response) {
 	console.log(data)
 }
 
@@ -59,7 +57,7 @@ T.get('followers/ids', { screen_name: 'Example_User' },  function (err, data, re
 //The following can be used to pull data about specific user's tweets:
 
 var userId = 'INSERT_USERID';
-//Get "userID" of twitter user from running hello.js with "screen_name"
+//Get "userID" of twitter user from running Twitter_API_Search.js with "screen_name"
 var stream = T.stream('statuses/filter', { follow: userId });
 stream.on('tweet', GotTweet);
 
